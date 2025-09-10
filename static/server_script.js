@@ -3,9 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const codeInput = document.getElementById('code-input');
     const languageSelect = document.getElementById('language');
     
+    const programOutput = document.getElementById('program-output');
+    const ezhOutput = document.getElementById('ezh-output');
     const velthuisOutput = document.getElementById('velthuis-output');
     const transliteratedOutput = document.getElementById('transliterated-output');
-    const ezhOutput = document.getElementById('ezh-output');
     
     compileBtn.addEventListener('click', async function() {
         const code = codeInput.value;
@@ -34,9 +35,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const result = await response.json();
             
             if (result.success) {
+                programOutput.textContent = result.output;
+                ezhOutput.textContent = result.ezh;
                 velthuisOutput.textContent = result.velthuis;
                 transliteratedOutput.textContent = result.transliterated;
-                ezhOutput.textContent = result.ezh;
             } else {
                 alert('Compilation failed: ' + result.error);
             }

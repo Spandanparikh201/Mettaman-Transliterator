@@ -86,9 +86,33 @@ button:hover {
 
 .output-section {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
     margin-bottom: 30px;
+}
+
+.debug-section {
+    margin-bottom: 30px;
+}
+
+.debug-section details {
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.debug-section summary {
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.debug-panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 15px;
 }
 
 .output-panel {
@@ -152,7 +176,7 @@ button:hover {
         transform: rotate(90deg);
     }
     
-    .output-section {
+    .output-section, .debug-panels {
         grid-template-columns: 1fr;
     }
 }
