@@ -28,18 +28,11 @@ def compile_code():
         
         compile_to_velthuis(input_file, velthuis_file, language)
         
-        if os.path.exists("venv/Scripts/python.exe"):
-            subprocess.run([
-                "venv/Scripts/python.exe", 
-                "transliterator/aksharamukha_converter.py", 
-                velthuis_file, transliterated_file
-            ])
-        else:
-            # Fallback - copy velthuis as transliterated
-            with open(velthuis_file, 'r', encoding='utf-8') as f:
-                content = f.read()
-            with open(transliterated_file, 'w', encoding='utf-8') as f:
-                f.write(content)
+        # Simple transliteration - copy velthuis as transliterated for now
+        with open(velthuis_file, 'r', encoding='utf-8') as f:
+            content = f.read()
+        with open(transliterated_file, 'w', encoding='utf-8') as f:
+            f.write(content)
         
         convert_to_ezh(transliterated_file, ezh_file)
         

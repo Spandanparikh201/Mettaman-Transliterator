@@ -1,4 +1,2 @@
 flask==2.3.3
 gunicorn==21.2.0
-aksharamukha==2.3
-requests>=2.20.1
