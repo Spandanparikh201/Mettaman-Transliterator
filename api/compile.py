@@ -7,7 +7,7 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from compiler.indic_compiler import convert_to_velthuis
-from replacer import convert_to_ezh
+from replacer import convert_to_ezh_string
 
 class handler(BaseHTTPRequestHandler):
     def do_POST(self):
@@ -26,7 +26,7 @@ class handler(BaseHTTPRequestHandler):
             transliterated_output = velthuis_output
             
             # Stage 3: Convert to Ezhil
-            ezh_output = convert_to_ezh(transliterated_output)
+            ezh_output = convert_to_ezh_string(transliterated_output)
             
             response = {
                 'success': True,

@@ -30,3 +30,6 @@ def velthuis_to_ezh(content):
         converted_lines.append(converted_line)
     
     return '\n'.join(converted_lines)
+
+def convert_to_ezh_string(content):
+    return velthuis_to_ezh(content)
